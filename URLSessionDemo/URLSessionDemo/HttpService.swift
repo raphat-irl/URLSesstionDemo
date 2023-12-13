@@ -35,15 +35,20 @@ class HttpService {
                 return
             }
             //check data
-            
             guard let responseData = data else {
                 print("ERROR NO DATA")
                 return
             }
+            
+            // change response to string
+            if let json:String = String(data: responseData, encoding: String.Encoding.utf8) {
+                print(json)
+            }
+            
             print(responseData)
             print("DONE")
+           
         }
         task.resume()
     }
-    
 }

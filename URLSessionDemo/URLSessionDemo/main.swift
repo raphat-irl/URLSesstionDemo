@@ -7,5 +7,9 @@
 
 import Foundation
 
-print("Hello, World!")
+let service = HttpService(endPoint: "https://jsonplaceholder.typicode.com/todos/1")
+service?.getTodo()
+
+let text = readLine()
+
 
