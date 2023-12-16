@@ -8,25 +8,22 @@ import Foundation
 
 class HttpService {
     
-    let url: URL
     let session: URLSession
     
-    init? (endPoint:String) {
-        guard let url = URL(string: endPoint) else {
-            print("ERROR CAN'T CREATE URL")
-            return nil
-        }
-        self.url = url
-        
+    init (endPoint:String) {
         //set up session
         let config = URLSessionConfiguration.default
         self.session = URLSession(configuration: config)
-        
     }
     
-    func getTodo() {
+    func getJSON(url:String , completion: (String) -> Void ) {
         
-        let todoRequest = URLRequest(url: url)
+        guard let endPoint = URL(string: url) else {
+            print("ERROR CAN'T CREATE URL")
+            return
+        }
+        
+        let todoRequest = URLRequest(url: endPoint)
         
         let task = session.dataTask(with: todoRequest) { (data, response, error) in
             //check error
