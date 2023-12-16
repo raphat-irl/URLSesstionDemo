@@ -7,9 +7,12 @@
 
 import Foundation
 
-let service = HttpService(endPoint: "https://jsonplaceholder.typicode.com/todos/1")
-service?.getTodo()
+let service = HttpService()
+service.getJSON(url: "https://jsonplaceholder.typicode.com/todos/1") { json in
+    print(json)
+}
 
+print("wait for input")
 let text = readLine()
 
 

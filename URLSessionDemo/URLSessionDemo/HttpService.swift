@@ -10,13 +10,13 @@ class HttpService {
     
     let session: URLSession
     
-    init (endPoint:String) {
+    init () {
         //set up session
         let config = URLSessionConfiguration.default
         self.session = URLSession(configuration: config)
     }
     
-    func getJSON(url:String , completion: (String) -> Void ) {
+    func getJSON(url:String , completion: @escaping (String) -> Void ) {
         
         guard let endPoint = URL(string: url) else {
             print("ERROR CAN'T CREATE URL")
@@ -39,8 +39,9 @@ class HttpService {
             
             // change response to string
             if let json:String = String(data: responseData, encoding: String.Encoding.utf8) {
-                print(json)
+                completion(json)
             }
+            completion("")
             
             print(responseData)
             print("DONE")
