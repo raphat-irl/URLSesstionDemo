@@ -6,3 +6,5 @@ URLSessionDemo/URLSessionDemo.xcodeproj/project.xcworkspace/xcuserdata/tawan.xcu
 URLSessionDemo/.DS_Store
 
 *.xcuserstate
+
+.DS_Store
