@@ -7,12 +7,17 @@
 
 import Foundation
 
-let service = HttpService()
-service.getJSON(url: "https://jsonplaceholder.typicode.com/todos/1") { json in
-    print(json)
+let httpClient = HttpService()
+
+httpClient.getJSON(url: "https://jsonplaceholder.typicode.com/todos/1") { (result, error) in
+    
+    guard error == nil else {
+        print(error!)
+        return
+    }
+    print(result)
 }
 
-print("wait for input")
-let text = readLine()
+let _ = readLine()
 
 
